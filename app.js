@@ -2,8 +2,8 @@ const http = require('http')
 const chalk = require('chalk')
 const moment = require('moment')
 const { v4: uuidv4 } = require('uuid')
-const getData = require('./getdata')
 const _ = require('lodash')
+const getData = require('./getdata')
 
 const users = []
 const port = 8080
