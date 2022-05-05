@@ -19,11 +19,13 @@ const port = 8080
 	}
 })()
 http
-.createServer((req, res) => {
-	if (req.url.includes('/users')) {
-		_.forEach(users,(user, i)=>{        
-				const userData = `${i + 1}. Nombre: ${user.name} Apellido: ${user.lastName} ID: ${user.id} Fecha: ${user.date} \n`
-            res.write(`<h3>${userData}</h3>`);
+	.createServer((req, res) => {
+		if (req.url.includes('/users')) {
+			_.forEach(users, (user, i) => {
+				const userData = `${i + 1}. Nombre: ${user.name} Apellido: ${
+					user.lastName
+				} ID: ${user.id} Fecha: ${user.date} \n`
+				res.write(`<h3>${userData}</h3>`)
 				console.log(chalk.blue.bgWhite.bold(`${userData}`))
 			})
 			res.end()
