@@ -14,7 +14,7 @@ http
 					user.lastName
 				} ID: ${user.id} Fecha: ${user.date} \n`
 				res.write(`<h3>${userData}</h3>`)
-				console.log(chalk.blue.bgWhite.bold(`${userData}`))
+				console.log(chalk.blue.bgWhite.bold(userData))
 			})
 			res.end()
 		}
