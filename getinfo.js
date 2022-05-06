@@ -2,8 +2,9 @@ const moment = require('moment')
 const { v4: uuidv4 } = require('uuid')
 const getData = require('./getdata')
 
+const users = []
+
 const getInfo = async () => {
-	const users = []
 	const data = await getData()
 	for (const user of data) {
 		const name = user.name.first
@@ -15,4 +16,4 @@ const getInfo = async () => {
 	return users
 }
 
-module.exports = getInfo
+module.exports = { users, getInfo }

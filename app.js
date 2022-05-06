@@ -1,7 +1,7 @@
 const http = require('http')
 const chalk = require('chalk')
 const _ = require('lodash')
-const getInfo = require('./getinfo')
+const {getInfo, users} = require('./getinfo')
 
 const port = 8080
 
@@ -13,7 +13,7 @@ http
 				const userData = `${i + 1}. Nombre: ${user.name} Apellido: ${
 					user.lastName
 				} ID: ${user.id} Fecha: ${user.date} \n`
-				res.write(`<h3>${userData}</h3>`)
+				res.write(`<meta charset="UTF-8"><h3>${userData}</h3>`)
 				console.log(chalk.blue.bgWhite.bold(userData))
 			})
 			res.end()
