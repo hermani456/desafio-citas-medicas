@@ -1,26 +1,14 @@
 const http = require('http')
 const chalk = require('chalk')
-const moment = require('moment')
-const { v4: uuidv4 } = require('uuid')
 const _ = require('lodash')
-const getData = require('./getdata')
+const getInfo = require('./getinfo')
 
-const users = []
 const port = 8080
 
-;(async () => {
-	const data = await getData()
-	for (const user of data) {
-		const name = user.name.first
-		const lastName = user.name.last
-		const id = uuidv4().slice(0, 6)
-		const date = moment().format('MMM Do YYYY hh:mm:ss')
-		users.push({ name, lastName, id, date })
-	}
-})()
 http
-	.createServer((req, res) => {
+	.createServer(async (req, res) => {
 		if (req.url.includes('/users')) {
+			const users = await getInfo()
 			_.forEach(users, (user, i) => {
 				const userData = `${i + 1}. Nombre: ${user.name} Apellido: ${
 					user.lastName
