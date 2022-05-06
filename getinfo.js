@@ -7,13 +7,12 @@ const users = []
 const getInfo = async () => {
 	const data = await getData()
 	for (const user of data) {
-		const name = user.name.first
-		const lastName = user.name.last
+		const { first, last } = user.name
 		const id = uuidv4().slice(0, 6)
 		const date = moment().format('MMM Do YYYY hh:mm:ss')
-		users.push({ name, lastName, id, date })
+		users.push({ name: first, lastName: last, id, date })
 	}
 	return users
 }
 
-module.exports = { users, getInfo }
+module.exports = getInfo

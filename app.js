@@ -1,7 +1,7 @@
 const http = require('http')
 const chalk = require('chalk')
 const _ = require('lodash')
-const {getInfo, users} = require('./getinfo')
+const getInfo = require('./getinfo')
 
 const port = 8080
 
